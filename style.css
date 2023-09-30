@@ -1,0 +1,530 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  
+  :root {
+    --almost-white: hsl(0, 0%, 98%);
+    --medium-gray: hsl(0, 0%, 41%);
+    --almost-black: hsl(0, 0%, 8%);
+  }
+  
+  body {
+    background-color: var(--almost-white);
+    font-family: "Epilogue", sans-serif;
+    width: 100vw;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  
+  .overlay {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  
+  .overlay.open {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+  
+  nav {
+    width: 100%;
+    padding: 1.5rem 1rem;
+  }
+  
+  .nav-logo-menu-bar {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  /* Nav Menu on mobile*/
+  .menu-bar:hover {
+    cursor: pointer;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    background-color: var(--almost-white);
+    color: var(--medium-gray);
+    top: 0;
+    right: 0;
+    width: 0;
+    text-align: left;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  
+  .nav-menu .close-menu-icon {
+    text-align: right;
+  }
+  
+  .nav-menu .close-menu-icon:hover {
+    cursor: pointer;
+  }
+  
+  .nav-menu.open {
+    width: 65%;
+    padding: 1rem;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+  }
+  
+  .nav-menu-item-container {
+    padding: 1.5rem 0.5rem 0 0.5rem;
+  }
+  
+  .features,
+  .company {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  
+  .arrow-img {
+    width: 10px;
+    background-image: url(images/icon-arrow-down.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-left: 1rem;
+  }
+  
+  .arrow-img.open {
+    background-image: url(images/icon-arrow-up.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
+  .nav-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .nav-item:hover {
+    cursor: pointer;
+    color: var(--almost-black);
+  }
+  
+  /* Features and Company Expanded Menu */
+  .features-expanded-list,
+  .company-expanded-list {
+    overflow-y: hidden;
+    max-height: 0;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+  }
+  
+  .features-expanded-list.open,
+  .company-expanded-list.open {
+    overflow-y: auto;
+    max-height: 200px;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    margin: 0.5rem 1.5rem;
+  }
+  
+  .features-item:hover,
+  .company-item:hover {
+    cursor: pointer;
+  }
+  
+  .features-item-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .company-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  /*  Login and Register  */
+  .login-register-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  .login-btn,
+  .register-btn {
+    font-family: "Epilogue", sans-serif;
+    background-color: transparent;
+    color: var(--medium-gray);
+    padding: 0.8rem 0;
+  }
+  
+  .login-btn:hover,
+  .register-btn:hover {
+    cursor: pointer;
+  }
+  
+  .login-btn {
+    border: none;
+  }
+  
+  .register-btn {
+    border-radius: 1rem;
+    border: 2px solid var(--medium-gray);
+  }
+  
+  /* Mobile Site */
+  .illustration {
+    width: 100%;
+    height: 300px;
+    background-image: url(images/image-hero-mobile.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .main-content .main-heading {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 2rem 0 1.5rem 0;
+  }
+  
+  .main-content .description {
+    color: var(--medium-gray);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .main-content .learn-more-btn {
+    color: var(--almost-white);
+    background-color: var(--almost-black);
+    font-family: "Epilogue", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border: 1px solid var(--almost-black);
+    border-radius: 1rem;
+    padding: 0.9rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .main-content .learn-more-btn:hover {
+    cursor: pointer;
+    background-color: var(--almost-white);
+    color: var(--almost-black);
+    border: 1px solid var(--almost-black);
+    -webkit-transition: all 0.3ms ease-out;
+    transition: all 0.3ms ease-out;
+  }
+  
+  .client-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 1.5rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .client-section .databiz-logo {
+    width: 20%;
+  }
+  
+  .client-section .audiophile-logo {
+    width: 15%;
+  }
+  
+  .client-section .meet-logo {
+    width: 18%;
+  }
+  
+  .client-section .maker-logo {
+    width: 18%;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+   
+  
+  @media only screen and (min-width: 768px) {
+    .main-content .description {
+      padding: 0 10rem;
+    }
+    .client-section .databiz-logo {
+      width: 10%;
+    }
+    .client-section .audiophile-logo {
+      width: 7%;
+    }
+    .client-section .meet-logo {
+      width: 10%;
+    }
+    .client-section .maker-logo {
+      width: 10%;
+    }
+  }
+  
+  @media only screen and (min-width: 1080px) {
+    main {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+    nav {
+      width: 100vw;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      margin-bottom: 1rem;
+      padding: 2rem 3rem;
+    }
+    nav .nav-logo-menu-bar {
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+    }
+    nav .nav-logo-menu-bar .menu-bar {
+      display: none;
+    }
+    nav .nav-menu {
+      width: 100%;
+      position: relative;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      padding: 0;
+    }
+    nav .nav-menu .close-menu-icon {
+      display: none;
+    }
+    nav .nav-menu .nav-menu-item-container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      padding: 0;
+      padding-top: 0.2rem;
+      margin-left: 5rem;
+    }
+    nav .nav-menu .nav-menu-item-container .arrow-img {
+      background-position: top left;
+      margin-left: 0.5rem;
+      margin-top: 0.3rem;
+    }
+    nav .nav-menu .nav-menu-item-container .arrow-img.open {
+      background-position: top left;
+    }
+    nav .nav-menu .nav-menu-item-container .features-expanded-list {
+      overflow-y: hidden;
+      position: absolute;
+      z-index: 1;
+      top: 3rem;
+      left: 0;
+      border-radius: 0.5rem;
+      background-color: var(--almost-white);
+      -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+              box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      margin: 0;
+    }
+    nav .nav-menu .nav-menu-item-container .features-expanded-list.open {
+      height: 200px;
+      padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+    nav .nav-menu .nav-menu-item-container .company-expanded-list {
+      overflow-y: hidden;
+      position: absolute;
+      background-color: var(--almost-white);
+      -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+              box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      left: 12.5rem;
+      top: 3rem;
+      border-radius: 0.5rem;
+      margin: 0;
+      -webkit-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out;
+    }
+    nav .nav-menu .nav-menu-item-container .company-expanded-list.open {
+      height: 150px;
+      padding: 1.5rem 1.5rem 0 1.5rem;
+      -webkit-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+    }
+    nav .nav-menu .nav-menu-item-container .nav-item {
+      margin-right: 2rem;
+    }
+    nav .nav-menu .login-register-container {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      gap: 1rem;
+      margin-left: auto;
+    }
+    nav .nav-menu .login-register-container .login-btn,
+    nav .nav-menu .login-register-container .register-btn {
+      padding: 0.8rem 1.3rem;
+    }
+    .grid-container {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr 490px;
+          grid-template-columns: 1fr 490px;
+          grid-template-areas: "main illustration" "client illustration";
+      gap: 8rem;
+      margin: 0 7.5rem 0 10.5rem;
+    }
+    .illustration {
+      background-image: url(images/image-hero-desktop.png);
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: contain;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 2;
+      -ms-grid-column: 2;
+      grid-area: illustration;
+      height: 100%;
+    }
+    .main-content {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      grid-area: main;
+      text-align: left;
+    }
+    .main-content .main-heading {
+      font-size: 4.75rem;
+      margin-top: 5rem;
+      margin-bottom: 3.5rem;
+    }
+    .main-content .main-heading span {
+      display: block;
+    }
+    .main-content .description {
+      max-width: 450px;
+      font-size: 1.1rem;
+      padding: 0;
+      padding-right: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .main-content .learn-more-btn {
+      font-size: 1.2rem;
+      padding: 1.2rem 2rem;
+      margin-bottom: 6.5rem;
+    }
+    .client-section {
+      -ms-grid-row: 2;
+      -ms-grid-column: 1;
+      grid-area: client;
+      gap: 2rem;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+    }
+    .client-section .databiz-logo {
+      width: 20%;
+    }
+    .client-section .audiophile-logo {
+      width: 13%;
+    }
+    .client-section .meet-logo {
+      width: 20%;
+    }
+    .client-section .maker-logo {
+      width: 20%;
+    }
+  }
+  
+  @media only screen and (min-width: 1440px) {
+    .client-section .databiz-logo {
+      width: 15%;
+    }
+    .client-section .audiophile-logo {
+      width: 10%;
+    }
+    .client-section .meet-logo {
+      width: 13%;
+    }
+    .client-section .maker-logo {
+      width: 13%;
+    }
+  }
+  /*# sourceMappingURL=styles.css.map */
